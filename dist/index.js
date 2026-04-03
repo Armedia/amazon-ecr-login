@@ -67994,7 +67994,9 @@ async function run() {
 
 
 /* istanbul ignore next */
-if (process.argv[1] === (0,external_node_url_.fileURLToPath)(import.meta.url)) {
+// Temporary workaround to make this work on ACT b/c for some reason the import.meta.url
+// doesn't have the correct value (missing /var up front) ... no idea why.
+if ((process.argv[1] === (0,external_node_url_.fileURLToPath)(import.meta.url)) || (process.env.ACT === "true")) {
   run();
 }
 
